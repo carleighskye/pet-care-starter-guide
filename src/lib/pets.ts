@@ -1,4 +1,4 @@
-export type PetId = "dogs" | "cats" | "birds" | "reptiles" | "fish";
+export type PetId = "dogs" | "cats" | "birds" | "reptiles" | "fish" | "rodents";
 
 export type CareSection = {
   title: string;
@@ -235,6 +235,49 @@ export const PETS: Record<PetId, PetInfo> = {
       },
     },
   },
+  rodents: {
+    id: "rodents",
+    label: "Rodents",
+    tagline: "Small companions with big personalities—proper housing and diet are essential.",
+    heroImage:
+      "https://images.unsplash.com/photo-1425082661705-1834bfd09dca?q=80&w=2076&auto=format&fit=crop",
+    intro:
+      "Small rodents like hamsters, guinea pigs, rats, and mice make wonderful pets but have unique care needs. Each species requires specific housing, diet, and socialization approaches.",
+    sections: {
+      feeding: {
+        title: "Feeding",
+        points: [
+          "Provide species-specific pellets as the base diet; avoid seed-only mixes.",
+          "Supplement with fresh vegetables daily (avoid onion, garlic, raw potato).",
+          "Fresh water in a bottle or bowl; clean and refill daily.",
+        ],
+      },
+      housing: {
+        title: "Housing & Environment",
+        points: [
+          "Cage size varies by species: larger is better with proper ventilation.",
+          "Use safe bedding (paper, aspen); avoid cedar/pine shavings.",
+          "Provide hideaways, tunnels, wheels (appropriate size), and enrichment toys.",
+        ],
+      },
+      health: {
+        title: "Health Signs",
+        points: [
+          "Watch for sneezing, discharge, lumps, weight loss, or lethargy.",
+          "Dental issues common: provide chew items to wear down teeth.",
+          "Find an exotic vet familiar with small mammals for wellness checks.",
+        ],
+      },
+      routine: {
+        title: "Daily Routine",
+        points: [
+          "Spot-clean bedding daily; full cage change weekly.",
+          "Handle gently and regularly to maintain socialization (species-dependent).",
+          "Provide fresh food/water, monitor behavior, and rotate enrichment items.",
+        ],
+      },
+    },
+  },
 };
 
-export const PET_ORDER: PetId[] = ["dogs", "cats", "birds", "reptiles", "fish"];
+export const PET_ORDER: PetId[] = ["dogs", "cats", "birds", "reptiles", "fish", "rodents"];

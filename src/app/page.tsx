@@ -101,38 +101,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="rodent-care" className="mx-auto max-w-6xl px-4 py-8 bg-muted/30">
-        <div className="flex items-center justify-between gap-4">
-          <h2 className="text-xl font-semibold">Rodent Care Essentials</h2>
-          <Link href="#categories" className="text-sm underline underline-offset-4">See all categories</Link>
-        </div>
-        <p className="mt-2 text-sm text-muted-foreground max-w-3xl">
-          Small rodents like hamsters, guinea pigs, rats, and mice make wonderful pets but have unique care needs. Learn the fundamentals to keep your small companion healthy and happy.
-        </p>
-        <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <div className="rounded-lg border bg-card p-4">
-            <div className="font-medium">Proper housing</div>
-            <p className="mt-1 text-sm text-muted-foreground">Cage size, bedding materials, and safe environments.</p>
-          </div>
-          <div className="rounded-lg border bg-card p-4">
-            <div className="font-medium">Nutrition & diet</div>
-            <p className="mt-1 text-sm text-muted-foreground">Species-specific food, fresh vegetables, and treats.</p>
-          </div>
-          <div className="rounded-lg border bg-card p-4">
-            <div className="font-medium">Handling & socialization</div>
-            <p className="mt-1 text-sm text-muted-foreground">Building trust, safe handling techniques, and bonding.</p>
-          </div>
-          <div className="rounded-lg border bg-card p-4">
-            <div className="font-medium">Health monitoring</div>
-            <p className="mt-1 text-sm text-muted-foreground">Common signs of illness and when to seek vet care.</p>
-          </div>
-        </div>
-        <div className="mt-4 flex flex-wrap gap-3">
-          <Link href="#categories" className="inline-flex items-center rounded-md bg-foreground px-4 py-2 text-sm text-background">Explore all pets</Link>
-          <Link href="#care-tips" className="inline-flex items-center rounded-md border px-4 py-2 text-sm">General care tips</Link>
-        </div>
-      </section>
-
       <div id="categories">
         <PetCategoryGrid />
       </div>
