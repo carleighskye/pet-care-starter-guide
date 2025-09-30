@@ -3,6 +3,8 @@ import Link from "next/link";
 import PetCategoryGrid from "@/components/PetCategoryGrid";
 import CareTips from "@/components/CareTips";
 import OnboardingPrompt from "@/components/OnboardingPrompt";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Stethoscope } from "lucide-react";
 
 export default function Home() {
   return (
@@ -31,13 +33,13 @@ export default function Home() {
       </section>
 
       <section id="introduction" className="mx-auto max-w-6xl px-4 py-8">
-      <Alert>
-        <Stethoscope className="h-4 w-4" />
-        <AlertTitle>Veterinary Disclaimer</AlertTitle>
-        <AlertDescription>
-          This app provides general guidance for new pet owners and does not replace professional veterinary care. If you notice concerning signs, contact a licensed veterinarian immediately.
-        </AlertDescription>
-      </Alert>
+        <Alert>
+          <Stethoscope className="h-4 w-4" />
+          <AlertTitle>Veterinary Disclaimer</AlertTitle>
+          <AlertDescription>
+            This app provides general guidance for new pet owners and does not replace professional veterinary care. If you notice concerning signs, contact a licensed veterinarian immediately.
+          </AlertDescription>
+        </Alert>
         <h2 className="text-xl font-semibold">Beginner-friendly introduction</h2>
         <p className="mt-2 text-sm text-muted-foreground max-w-3xl">
           This app is a quick-start guide for people new to pet care. It does not replace professional veterinary advice.
