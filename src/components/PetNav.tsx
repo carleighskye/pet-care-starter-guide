@@ -2,11 +2,14 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { Bone, Cat, Bird, Turtle, Fish, Home, Search } from "lucide-react";
+import { Bone, Cat, Bird, Turtle, Fish, Home, Search, User, LogOut } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { PET_ORDER, PETS, PetId } from "@/lib/pets";
 import { useMemo, useState } from "react";
+import { authClient, useSession } from "@/lib/auth-client";
+import { toast } from "sonner";
 
 const iconMap: Record<PetId, JSX.Element> = {
   dogs: <Bone className="h-4 w-4" />,
@@ -20,6 +23,7 @@ export default function PetNav() {
   const pathname = usePathname();
   const router = useRouter();
   const [q, setQ] = useState("");
+  const { data: session, isPending, refetch } = useSession();
 
   const suggestions = useMemo(() => {
     const query = q.trim().toLowerCase();
@@ -32,6 +36,18 @@ export default function PetNav() {
   function go(path: string) {
     router.push(path);
   }
+
+  const handleSignOut = async () => {
+    const { error } = await authClient.signOut();
+    if (error?.code) {
+      toast.error(error.code);
+    } else {
+      localStorage.removeItem("bearer_token");
+      refetch();
+      toast.success("Signed out successfully");
+      router.push("/");
+    }
+  };
 
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -54,6 +70,60 @@ export default function PetNav() {
               <span className="hidden sm:inline">{PETS[id].label}</span>
             </Link>
           ))}
+          
+          {/* Auth UI */}
+          {!isPending && session?.user ? (
+            <>
+              <Link
+                href="/my-pets"
+                className={cn(
+                  "inline-flex items-center gap-1 rounded-md px-2 py-1 text-sm hover:bg-accent",
+                  pathname === "/my-pets" && "bg-accent"
+                )}
+              >
+                <User className="h-4 w-4" />
+                <span className="hidden sm:inline">My Pets</span>
+              </Link>
+              <div className="hidden md:flex items-center gap-2 ml-2 pl-2 border-l">
+                <span className="text-sm text-muted-foreground">{session.user.name}</span>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={handleSignOut}
+                  className="h-8"
+                >
+                  <LogOut className="h-4 w-4" />
+                  <span className="ml-1">Sign out</span>
+                </Button>
+              </div>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={handleSignOut}
+                className="md:hidden h-8"
+              >
+                <LogOut className="h-4 w-4" />
+              </Button>
+            </>
+          ) : !isPending ? (
+            <div className="flex items-center gap-1 ml-2 pl-2 border-l">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => router.push("/login")}
+                className="h-8"
+              >
+                Sign in
+              </Button>
+              <Button
+                size="sm"
+                onClick={() => router.push("/register")}
+                className="h-8"
+              >
+                Sign up
+              </Button>
+            </div>
+          ) : null}
         </nav>
       </div>
       <div className="mx-auto max-w-6xl px-4 pb-3">

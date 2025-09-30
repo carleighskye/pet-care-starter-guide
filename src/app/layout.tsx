@@ -4,6 +4,7 @@ import VisualEditsMessenger from "../visual-edits/VisualEditsMessenger";
 import ErrorReporter from "@/components/ErrorReporter";
 import Script from "next/script";
 import PetNav from "@/components/PetNav";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: "Pet Care Starter",
@@ -31,6 +32,7 @@ export default function RootLayout({
         />
         <PetNav />
         {children}
+        <Toaster />
         <VisualEditsMessenger />
       </body>
     </html>
