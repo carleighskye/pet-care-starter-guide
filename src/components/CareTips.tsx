@@ -57,13 +57,7 @@ export default function CareTips() {
         </AccordionItem>
       </Accordion>
 
-      <Alert>
-        <Stethoscope className="h-4 w-4" />
-        <AlertTitle>Veterinary Disclaimer</AlertTitle>
-        <AlertDescription>
-          This app provides general guidance for new pet owners and does not replace professional veterinary care. If you notice concerning signs, contact a licensed veterinarian immediately.
-        </AlertDescription>
-      </Alert>
+      
     </section>
   );
 }
