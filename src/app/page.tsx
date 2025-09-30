@@ -40,11 +40,7 @@ export default function Home() {
             This app provides general guidance for new pet owners and does not replace professional veterinary care. If you notice concerning signs, contact a licensed veterinarian immediately.
           </AlertDescription>
         </Alert>
-        <h2 className="text-xl font-semibold">Beginner-friendly introduction</h2>
-        <p className="mt-2 text-sm text-muted-foreground max-w-3xl">
-          This app is a quick-start guide for people new to pet care. It does not replace professional veterinary advice.
-          Use it to understand daily needs, safe environments, and early signs that your pet may need medical attention.
-        </p>
+        
       </section>
 
       <section id="new-owners" className="mx-auto max-w-6xl px-4 py-8">
