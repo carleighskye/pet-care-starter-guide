@@ -24,8 +24,8 @@ export default function Home() {
             Learn the basics of caring for dogs, cats, birds, reptiles, and fish. Simple tips for brand new pet owners.
           </p>
           <div className="mt-4 flex gap-3">
-            <Link href="#categories" className="inline-flex items-center rounded-md bg-foreground px-4 py-2 text-sm text-background">Browse Categories</Link>
-            <Link href="/pets/dogs" className="inline-flex items-center rounded-md border px-4 py-2 text-sm">Start with Dogs</Link>
+            <Link href="#new-owners" className="inline-flex items-center rounded-md bg-foreground px-4 py-2 text-sm text-background">I already have a pet</Link>
+            <Link href="#prospective-owners" className="inline-flex items-center rounded-md border px-4 py-2 text-sm">I'm looking to adopt</Link>
           </div>
         </div>
       </section>
