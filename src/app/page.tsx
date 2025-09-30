@@ -40,7 +40,7 @@ export default function Home() {
 
       <section id="new-owners" className="mx-auto max-w-6xl px-4 py-8">
         <div className="flex items-center justify-between gap-4">
-          <h2 className="text-xl font-semibold">New Owners: Start here</h2>
+          <h2 className="text-xl font-semibold">Have a pet?: Start here</h2>
           <Link href="#prospective-owners" className="text-sm underline underline-offset-4">Looking to adopt?</Link>
         </div>
         <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
