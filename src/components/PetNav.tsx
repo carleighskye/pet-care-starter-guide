@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { Bone, Cat, Bird, Turtle, Fish, Home, Search, User, LogOut } from "lucide-react";
+import { Bone, Cat, Bird, Turtle, Fish, Home, Search, User, LogOut, Rat } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -17,6 +17,7 @@ const iconMap: Record<PetId, JSX.Element> = {
   birds: <Bird className="h-4 w-4" />,
   reptiles: <Turtle className="h-4 w-4" />,
   fish: <Fish className="h-4 w-4" />,
+  rodents: <Rat className="h-4 w-4" />,
 };
 
 export default function PetNav() {

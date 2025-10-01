@@ -154,7 +154,7 @@ export const PETS: Record<PetId, PetInfo> = {
     label: "Reptiles",
     tagline: "Species-specific heating, lighting, and humidity are essential.",
     heroImage:
-      "https://images.unsplash.com/photo-1546308764-cc7c7f3b84f0?q=80&w=2070&auto=format&fit=crop",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/58d1338c-357e-4bf6-a03e-1951e2193659/generated_images/close-up-photograph-of-a-green-iguana-li-e22c219b-20251001185916.jpg?",
     intro:
       "Reptiles require precise habitat conditions (temperature gradients, UVB lighting, humidity). Research your species' needs.",
     sections: {
@@ -197,7 +197,7 @@ export const PETS: Record<PetId, PetInfo> = {
     label: "Fish",
     tagline: "Stable water parameters and proper cycling are key for aquatic life.",
     heroImage:
-      "https://images.unsplash.com/photo-1504270997636-07ddfbd48945?q=80&w=2070&auto=format&fit=crop",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/58d1338c-357e-4bf6-a03e-1951e2193659/generated_images/vibrant-tropical-fish-swimming-in-clear--4ec26950-20251001185926.jpg?",
     intro:
       "Start with a properly cycled tank, adequate filtration, and species-compatible stocking.",
     sections: {
