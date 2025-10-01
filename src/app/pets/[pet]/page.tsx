@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import CareTips from "@/components/CareTips";
 import PetChecklist from "@/components/PetChecklist";
 import ReptileCategories from "@/components/ReptileCategories";
+import DogBreedQuiz from "@/components/DogBreedQuiz";
 import { PETS, PetId } from "@/lib/pets";
 
 export default function PetPage({ params }: { params: { pet: string } }) {
@@ -90,6 +91,8 @@ export default function PetPage({ params }: { params: { pet: string } }) {
           </div>
         </section>
       )}
+
+      {id === "dogs" && <DogBreedQuiz />}
 
       <PetChecklist petId={id} />
       <CareTips />
