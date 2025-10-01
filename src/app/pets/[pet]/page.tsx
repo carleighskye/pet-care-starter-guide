@@ -5,6 +5,7 @@ import CareTips from "@/components/CareTips";
 import PetChecklist from "@/components/PetChecklist";
 import ReptileCategories from "@/components/ReptileCategories";
 import DogBreedQuiz from "@/components/DogBreedQuiz";
+import CatBreedQuiz from "@/components/CatBreedQuiz";
 import { PETS, PetId } from "@/lib/pets";
 
 export default function PetPage({ params }: { params: { pet: string } }) {
@@ -93,6 +94,7 @@ export default function PetPage({ params }: { params: { pet: string } }) {
       )}
 
       {id === "dogs" && <DogBreedQuiz />}
+      {id === "cats" && <CatBreedQuiz />}
 
       <PetChecklist petId={id} />
       <CareTips />

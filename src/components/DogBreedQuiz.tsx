@@ -850,48 +850,49 @@ export default function DogBreedQuiz() {
   const calculateResults = () => {
     const scored = dogBreeds.map(breed => {
       let score = 0;
+      const maxScore = 100; // Maximum possible score
 
-      // Size match
+      // Size match (18 points max)
       if (answers.sizePreference === "any" || breed.size === answers.sizePreference) {
-        score += 20;
+        score += 18;
       } else if (
         (answers.sizePreference === "medium" && (breed.size === "small" || breed.size === "large")) ||
         (answers.sizePreference === "large" && breed.size === "medium")
       ) {
-        score += 10;
+        score += 9;
       }
 
-      // Living space match
+      // Living space match (14 points max)
       if (answers.livingSpace === "apartment" && breed.space === "apartment") {
-        score += 15;
+        score += 14;
       } else if (answers.livingSpace === "house" && breed.space === "house") {
-        score += 15;
+        score += 14;
       } else if (answers.livingSpace === "large") {
-        score += 15; // All breeds work for large properties
+        score += 14; // All breeds work for large properties
       }
 
-      // Activity/energy match
+      // Activity/energy match (18 points max)
       if (breed.energy === answers.activityLevel) {
-        score += 20;
+        score += 18;
       } else if (
         (answers.activityLevel === "moderate" && (breed.energy === "low" || breed.energy === "high")) ||
         (breed.energy === "moderate" && (answers.activityLevel === "low" || answers.activityLevel === "high"))
       ) {
-        score += 10;
+        score += 9;
       }
 
-      // Experience match
+      // Experience match (14 points max)
       if (answers.experience === "beginner" && breed.experience === "beginner") {
-        score += 15;
+        score += 14;
       } else if (answers.experience === "experienced") {
-        score += 15; // Experienced owners can handle any dog
+        score += 14; // Experienced owners can handle any dog
       } else if (answers.experience === "some" && breed.experience === "beginner") {
-        score += 12;
+        score += 11;
       }
 
-      // Exercise time match
+      // Exercise time match (14 points max)
       if (breed.exercise === answers.exerciseTime) {
-        score += 15;
+        score += 14;
       } else {
         const exerciseMinutes: Record<string, number> = {
           "30min": 30,
@@ -903,32 +904,32 @@ export default function DogBreedQuiz() {
         const diff = Math.abs(
           exerciseMinutes[breed.exercise] - exerciseMinutes[answers.exerciseTime || "60min"]
         );
-        if (diff <= 30) score += 8;
+        if (diff <= 30) score += 7;
       }
 
-      // Family situation match
+      // Family situation match (9 points max)
       if (answers.familySituation === "excellent" && breed.family === "excellent") {
-        score += 10;
+        score += 9;
       } else if (answers.familySituation === "good" && (breed.family === "good" || breed.family === "excellent")) {
-        score += 10;
+        score += 9;
       } else if (answers.familySituation === "singles") {
-        score += 10; // Singles can handle most dogs
+        score += 9; // Singles can handle most dogs
       } else if (answers.familySituation === "elderly" && breed.energy === "low") {
-        score += 10;
+        score += 9;
       }
 
-      // Grooming match
+      // Grooming match (9 points max)
       if (breed.grooming === answers.groomingCommitment) {
-        score += 10;
+        score += 9;
       } else if (
         (answers.groomingCommitment === "moderate" && (breed.grooming === "low" || breed.grooming === "high"))
       ) {
-        score += 5;
+        score += 4;
       }
 
-      // Barking tolerance match
+      // Barking tolerance match (4 points max)
       if (breed.barking === answers.barkingTolerance) {
-        score += 5;
+        score += 4;
       }
 
       return { ...breed, score };
