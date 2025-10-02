@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
@@ -31,7 +30,6 @@ type DogBreed = {
   barking: string;
   description: string;
   traits: string[];
-  imageUrl: string;
 };
 
 const dogBreeds: DogBreed[] = [
@@ -47,8 +45,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "30min",
     barking: "low",
     description: "Affectionate, playful, and adaptable companion perfect for city living.",
-    traits: ["Low maintenance", "Great for apartments", "Good with kids", "Minimal exercise needs"],
-    imageUrl: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=400&h=400&fit=crop"
+    traits: ["Low maintenance", "Great for apartments", "Good with kids", "Minimal exercise needs"]
   },
   {
     name: "Cavalier King Charles Spaniel",
@@ -61,8 +58,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "45min",
     barking: "low",
     description: "Gentle, affectionate lap dog that loves everyone.",
-    traits: ["Extremely friendly", "Good with children", "Adaptable", "Eager to please"],
-    imageUrl: "https://images.unsplash.com/photo-1605197834855-6b27ffdbd3f7?w=400&h=400&fit=crop"
+    traits: ["Extremely friendly", "Good with children", "Adaptable", "Eager to please"]
   },
   {
     name: "Pug",
@@ -75,8 +71,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "30min",
     barking: "moderate",
     description: "Charming, mischievous, and loving companion with a big personality.",
-    traits: ["Low exercise needs", "Great with kids", "Adaptable", "Comical personality"],
-    imageUrl: "https://images.unsplash.com/photo-1517849845537-4d257902454a?w=400&h=400&fit=crop"
+    traits: ["Low exercise needs", "Great with kids", "Adaptable", "Comical personality"]
   },
   {
     name: "Chihuahua",
@@ -89,8 +84,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "30min",
     barking: "high",
     description: "Tiny, sassy, and loyal companion with huge personality.",
-    traits: ["Very portable", "Long lifespan", "Loyal", "Alert watchdog"],
-    imageUrl: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&h=400&fit=crop"
+    traits: ["Very portable", "Long lifespan", "Loyal", "Alert watchdog"]
   },
   {
     name: "Shih Tzu",
@@ -103,8 +97,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "30min",
     barking: "moderate",
     description: "Friendly, affectionate lap dog bred to be a companion.",
-    traits: ["Great for apartments", "Good with children", "Friendly", "Requires regular grooming"],
-    imageUrl: "https://images.unsplash.com/photo-1612536980763-8fe6c50b4e41?w=400&h=400&fit=crop"
+    traits: ["Great for apartments", "Good with children", "Friendly", "Requires regular grooming"]
   },
   {
     name: "Pomeranian",
@@ -117,8 +110,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "30min",
     barking: "high",
     description: "Fluffy, bold, and lively little companion with fox-like features.",
-    traits: ["Portable size", "Alert", "Intelligent", "High grooming needs"],
-    imageUrl: "https://images.unsplash.com/photo-1598133893773-de3574464ef0?w=400&h=400&fit=crop"
+    traits: ["Portable size", "Alert", "Intelligent", "High grooming needs"]
   },
   {
     name: "Yorkshire Terrier",
@@ -131,8 +123,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "30min",
     barking: "high",
     description: "Feisty, brave, and affectionate toy breed with silky coat.",
-    traits: ["Portable", "Hypoallergenic coat", "Bold personality", "Good watchdog"],
-    imageUrl: "https://images.unsplash.com/photo-1579965342575-16428a37d4b1?w=400&h=400&fit=crop"
+    traits: ["Portable", "Hypoallergenic coat", "Bold personality", "Good watchdog"]
   },
   {
     name: "Boston Terrier",
@@ -145,8 +136,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "45min",
     barking: "low",
     description: "Friendly, intelligent 'American Gentleman' with tuxedo markings.",
-    traits: ["Low maintenance", "Good with kids", "Friendly", "Adaptable"],
-    imageUrl: "https://images.unsplash.com/photo-1604916287784-c324202b3a44?w=400&h=400&fit=crop"
+    traits: ["Low maintenance", "Good with kids", "Friendly", "Adaptable"]
   },
   {
     name: "Dachshund",
@@ -159,8 +149,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "45min",
     barking: "high",
     description: "Clever, stubborn, and courageous with elongated body.",
-    traits: ["Unique appearance", "Loyal", "Good watchdog", "Independent"],
-    imageUrl: "https://images.unsplash.com/photo-1612536980763-4d2e1b49c4b0?w=400&h=400&fit=crop"
+    traits: ["Unique appearance", "Loyal", "Good watchdog", "Independent"]
   },
   {
     name: "Maltese",
@@ -173,11 +162,10 @@ const dogBreeds: DogBreed[] = [
     exercise: "30min",
     barking: "moderate",
     description: "Gentle, playful lap dog with long white coat.",
-    traits: ["Hypoallergenic", "Great for apartments", "Affectionate", "Good with gentle children"],
-    imageUrl: "https://images.unsplash.com/photo-1600077106724-946750eeaf3c?w=400&h=400&fit=crop"
+    traits: ["Hypoallergenic", "Great for apartments", "Affectionate", "Good with gentle children"]
   },
   
-  // Medium & Large Breeds
+  // Medium Breeds
   {
     name: "Golden Retriever",
     size: "large",
@@ -189,8 +177,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "90min",
     barking: "low",
     description: "Friendly, intelligent, and devoted family dog.",
-    traits: ["Great with kids", "Highly trainable", "Gentle temperament", "Active lifestyle"],
-    imageUrl: "https://images.unsplash.com/photo-1633722715463-d30f4f325e24?w=400&h=400&fit=crop"
+    traits: ["Great with kids", "Highly trainable", "Gentle temperament", "Active lifestyle"]
   },
   {
     name: "Labrador Retriever",
@@ -203,8 +190,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "90min",
     barking: "low",
     description: "Outgoing, active, and friendly companion perfect for families.",
-    traits: ["Versatile", "Great with children", "Easy to train", "Athletic"],
-    imageUrl: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=400&h=400&fit=crop"
+    traits: ["Versatile", "Great with children", "Easy to train", "Athletic"]
   },
   {
     name: "Cocker Spaniel",
@@ -217,8 +203,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "60min",
     barking: "moderate",
     description: "Gentle, happy, and affectionate sporting dog.",
-    traits: ["Friendly", "Good with kids", "Adaptable", "Beautiful coat"],
-    imageUrl: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400&h=400&fit=crop"
+    traits: ["Friendly", "Good with kids", "Adaptable", "Beautiful coat"]
   },
   {
     name: "Bulldog",
@@ -231,8 +216,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "30min",
     barking: "low",
     description: "Calm, friendly, and courageous with distinctive wrinkled face.",
-    traits: ["Low energy", "Good with kids", "Gentle", "Minimal exercise"],
-    imageUrl: "https://images.unsplash.com/photo-1583511655826-05700d7f5896?w=400&h=400&fit=crop"
+    traits: ["Low energy", "Good with kids", "Gentle", "Minimal exercise"]
   },
   {
     name: "Beagle",
@@ -245,8 +229,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "60min",
     barking: "high",
     description: "Merry, friendly, and curious hound with excellent nose.",
-    traits: ["Great with kids", "Social", "Active", "Vocal"],
-    imageUrl: "https://images.unsplash.com/photo-1505628346881-b72b27e84530?w=400&h=400&fit=crop"
+    traits: ["Great with kids", "Social", "Active", "Vocal"]
   },
   {
     name: "Pembroke Welsh Corgi",
@@ -259,8 +242,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "60min",
     barking: "moderate",
     description: "Smart, affectionate herding dog with short legs.",
-    traits: ["Intelligent", "Good with kids", "Adaptable", "Alert"],
-    imageUrl: "https://images.unsplash.com/photo-1612536980263-0da6d34b045e?w=400&h=400&fit=crop"
+    traits: ["Intelligent", "Good with kids", "Adaptable", "Alert"]
   },
   {
     name: "Poodle (Miniature)",
@@ -273,8 +255,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "60min",
     barking: "low",
     description: "Intelligent, elegant, and hypoallergenic companion.",
-    traits: ["Hypoallergenic", "Highly trainable", "Active", "Requires grooming"],
-    imageUrl: "https://images.unsplash.com/photo-1616012700672-5c2d1e4a88f1?w=400&h=400&fit=crop"
+    traits: ["Hypoallergenic", "Highly trainable", "Active", "Requires grooming"]
   },
   {
     name: "Shetland Sheepdog",
@@ -287,8 +268,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "60min",
     barking: "high",
     description: "Intelligent, playful, and energetic herding dog.",
-    traits: ["Highly trainable", "Great with kids", "Active", "Vocal"],
-    imageUrl: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=400&h=400&fit=crop"
+    traits: ["Highly trainable", "Great with kids", "Active", "Vocal"]
   },
   {
     name: "Whippet",
@@ -301,8 +281,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "60min",
     barking: "low",
     description: "Gentle, affectionate sighthound that loves to run.",
-    traits: ["Low maintenance", "Quiet", "Athletic", "Good apartment dog"],
-    imageUrl: "https://images.unsplash.com/photo-1541876176139-5d6698f3c3e4?w=400&h=400&fit=crop"
+    traits: ["Low maintenance", "Quiet", "Athletic", "Good apartment dog"]
   },
   {
     name: "Basset Hound",
@@ -315,8 +294,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "45min",
     barking: "moderate",
     description: "Patient, low-key hound with long ears and sad expression.",
-    traits: ["Gentle", "Good with kids", "Laid-back", "Easygoing"],
-    imageUrl: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=400&h=400&fit=crop"
+    traits: ["Gentle", "Good with kids", "Laid-back", "Easygoing"]
   },
   {
     name: "Australian Shepherd",
@@ -329,8 +307,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "120min",
     barking: "moderate",
     description: "Smart, work-oriented herding dog with high energy.",
-    traits: ["Extremely intelligent", "Athletic", "Loyal", "Needs mental stimulation"],
-    imageUrl: "https://images.unsplash.com/photo-1568572933382-74d440642117?w=400&h=400&fit=crop"
+    traits: ["Extremely intelligent", "Athletic", "Loyal", "Needs mental stimulation"]
   },
   {
     name: "Border Collie",
@@ -343,8 +320,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "120min",
     barking: "moderate",
     description: "Remarkably smart, energetic herding dog.",
-    traits: ["Most intelligent breed", "High energy", "Needs jobs", "Excellent trainability"],
-    imageUrl: "https://images.unsplash.com/photo-1587402092301-725e37c70fd8?w=400&h=400&fit=crop"
+    traits: ["Most intelligent breed", "High energy", "Needs jobs", "Excellent trainability"]
   },
   {
     name: "Brittany",
@@ -357,8 +333,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "90min",
     barking: "low",
     description: "Upbeat, athletic bird dog with happy disposition.",
-    traits: ["Friendly", "Athletic", "Eager to please", "Great family dog"],
-    imageUrl: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=400&h=400&fit=crop"
+    traits: ["Friendly", "Athletic", "Eager to please", "Great family dog"]
   },
   {
     name: "Staffordshire Bull Terrier",
@@ -371,9 +346,10 @@ const dogBreeds: DogBreed[] = [
     exercise: "60min",
     barking: "low",
     description: "Courageous, intelligent, and affectionate 'nanny dog'.",
-    traits: ["Great with kids", "Loyal", "Playful", "Muscular build"],
-    imageUrl: "https://images.unsplash.com/photo-1551717743-49959800b1f6?w=400&h=400&fit=crop"
+    traits: ["Great with kids", "Loyal", "Playful", "Muscular build"]
   },
+  
+  // Large Breeds
   {
     name: "German Shepherd",
     size: "large",
@@ -385,8 +361,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "90min",
     barking: "moderate",
     description: "Confident, courageous, and smart working dog.",
-    traits: ["Highly trainable", "Protective", "Loyal", "Versatile"],
-    imageUrl: "https://images.unsplash.com/photo-1568393691622-c7ba131d63b4?w=400&h=400&fit=crop"
+    traits: ["Highly trainable", "Protective", "Loyal", "Versatile"]
   },
   {
     name: "Boxer",
@@ -399,8 +374,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "90min",
     barking: "moderate",
     description: "Fun-loving, bright, and active guardian.",
-    traits: ["Great with kids", "Playful", "Protective", "Energetic"],
-    imageUrl: "https://images.unsplash.com/photo-1587926176834-07ea5c58c969?w=400&h=400&fit=crop"
+    traits: ["Great with kids", "Playful", "Protective", "Energetic"]
   },
   {
     name: "Rottweiler",
@@ -413,8 +387,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "60min",
     barking: "low",
     description: "Loyal, loving, and confident guardian.",
-    traits: ["Protective", "Strong", "Trainable", "Devoted"],
-    imageUrl: "https://images.unsplash.com/photo-1567752881298-894bb81f9379?w=400&h=400&fit=crop"
+    traits: ["Protective", "Strong", "Trainable", "Devoted"]
   },
   {
     name: "Doberman Pinscher",
@@ -427,8 +400,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "90min",
     barking: "moderate",
     description: "Loyal, fearless, and alert guardian.",
-    traits: ["Highly trainable", "Athletic", "Protective", "Intelligent"],
-    imageUrl: "https://images.unsplash.com/photo-1603804072474-e46f800b1c6e?w=400&h=400&fit=crop"
+    traits: ["Highly trainable", "Athletic", "Protective", "Intelligent"]
   },
   {
     name: "Siberian Husky",
@@ -441,8 +413,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "120min",
     barking: "high",
     description: "Outgoing, mischievous sled dog with striking appearance.",
-    traits: ["High energy", "Independent", "Vocal", "Needs lots of exercise"],
-    imageUrl: "https://images.unsplash.com/photo-1605568427561-40dd23c2acea?w=400&h=400&fit=crop"
+    traits: ["High energy", "Independent", "Vocal", "Needs lots of exercise"]
   },
   {
     name: "Great Dane",
@@ -455,8 +426,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "60min",
     barking: "low",
     description: "Friendly, patient, and dependable gentle giant.",
-    traits: ["Gentle giant", "Good with kids", "Noble", "Needs space"],
-    imageUrl: "https://images.unsplash.com/photo-1588943211346-0908a1fb0b01?w=400&h=400&fit=crop"
+    traits: ["Gentle giant", "Good with kids", "Noble", "Needs space"]
   },
   {
     name: "Bernese Mountain Dog",
@@ -469,8 +439,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "60min",
     barking: "low",
     description: "Good-natured, calm, and strong working dog.",
-    traits: ["Gentle", "Great with kids", "Affectionate", "Beautiful coat"],
-    imageUrl: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=400&h=400&fit=crop"
+    traits: ["Gentle", "Great with kids", "Affectionate", "Beautiful coat"]
   },
   {
     name: "Saint Bernard",
@@ -483,8 +452,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "45min",
     barking: "low",
     description: "Playful, charming, and inquisitive rescue dog.",
-    traits: ["Gentle giant", "Patient", "Good with kids", "Drools"],
-    imageUrl: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=400&h=400&fit=crop"
+    traits: ["Gentle giant", "Patient", "Good with kids", "Drools"]
   },
   {
     name: "Weimaraner",
@@ -497,8 +465,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "120min",
     barking: "moderate",
     description: "Friendly, fearless, and athletic hunting dog.",
-    traits: ["High energy", "Needs lots of exercise", "Intelligent", "Separation anxiety prone"],
-    imageUrl: "https://images.unsplash.com/photo-1599663253423-f8f28d082f9e?w=400&h=400&fit=crop"
+    traits: ["High energy", "Needs lots of exercise", "Intelligent", "Separation anxiety prone"]
   },
   {
     name: "Vizsla",
@@ -511,8 +478,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "120min",
     barking: "low",
     description: "Affectionate, gentle, and energetic pointer.",
-    traits: ["Velcro dog", "Athletic", "Needs activity", "Great with active families"],
-    imageUrl: "https://images.unsplash.com/photo-1544785349-c4a5301826fd?w=400&h=400&fit=crop"
+    traits: ["Velcro dog", "Athletic", "Needs activity", "Great with active families"]
   },
   {
     name: "Rhodesian Ridgeback",
@@ -525,8 +491,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "90min",
     barking: "low",
     description: "Strong-willed, dignified, and loyal guardian.",
-    traits: ["Independent", "Athletic", "Protective", "Low maintenance"],
-    imageUrl: "https://images.unsplash.com/photo-1568640656855-472071b7e67e?w=400&h=400&fit=crop"
+    traits: ["Independent", "Athletic", "Protective", "Low maintenance"]
   },
   {
     name: "Alaskan Malamute",
@@ -539,8 +504,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "120min",
     barking: "high",
     description: "Affectionate, loyal, and playful sled dog.",
-    traits: ["High energy", "Strong", "Independent", "Heavy shedding"],
-    imageUrl: "https://images.unsplash.com/photo-1548460643-039b5c911bb2?w=400&h=400&fit=crop"
+    traits: ["High energy", "Strong", "Independent", "Heavy shedding"]
   },
   {
     name: "Newfoundland",
@@ -553,8 +517,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "45min",
     barking: "low",
     description: "Sweet-tempered, devoted gentle giant and water rescue dog.",
-    traits: ["Gentle", "Great with kids", "Loves water", "Drools"],
-    imageUrl: "https://images.unsplash.com/photo-1544785349-c4a5301826fd?w=400&h=400&fit=crop"
+    traits: ["Gentle", "Great with kids", "Loves water", "Drools"]
   },
   {
     name: "Irish Setter",
@@ -567,8 +530,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "90min",
     barking: "low",
     description: "Outgoing, sweet-natured, and active bird dog.",
-    traits: ["Friendly", "Beautiful coat", "Athletic", "Great with kids"],
-    imageUrl: "https://images.unsplash.com/photo-1590752822735-5947331f5f83?w=400&h=400&fit=crop"
+    traits: ["Friendly", "Beautiful coat", "Athletic", "Great with kids"]
   },
   {
     name: "Collie",
@@ -581,8 +543,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "60min",
     barking: "moderate",
     description: "Devoted, graceful, and proud herding dog.",
-    traits: ["Gentle", "Good with kids", "Intelligent", "Beautiful coat"],
-    imageUrl: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=400&h=400&fit=crop"
+    traits: ["Gentle", "Good with kids", "Intelligent", "Beautiful coat"]
   },
   {
     name: "Akita",
@@ -595,8 +556,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "60min",
     barking: "low",
     description: "Courageous, dignified, and profoundly loyal.",
-    traits: ["Independent", "Protective", "Reserved", "Needs experienced handler"],
-    imageUrl: "https://images.unsplash.com/photo-1611003228941-98852ba62227?w=400&h=400&fit=crop"
+    traits: ["Independent", "Protective", "Reserved", "Needs experienced handler"]
   },
   {
     name: "English Springer Spaniel",
@@ -609,8 +569,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "90min",
     barking: "moderate",
     description: "Friendly, playful, and obedient bird dog.",
-    traits: ["Great with kids", "Athletic", "Eager to please", "Versatile"],
-    imageUrl: "https://images.unsplash.com/photo-1583511655826-05700d7f5896?w=400&h=400&fit=crop"
+    traits: ["Great with kids", "Athletic", "Eager to please", "Versatile"]
   },
   {
     name: "Poodle (Standard)",
@@ -623,9 +582,10 @@ const dogBreeds: DogBreed[] = [
     exercise: "60min",
     barking: "low",
     description: "Intelligent, elegant, and athletic companion.",
-    traits: ["Hypoallergenic", "Highly trainable", "Active", "Requires grooming"],
-    imageUrl: "https://images.unsplash.com/photo-1616012700672-5c2d1e4a88f1?w=400&h=400&fit=crop"
+    traits: ["Hypoallergenic", "Highly trainable", "Active", "Requires grooming"]
   },
+  
+  // Additional Popular Breeds
   {
     name: "Bichon Frise",
     size: "small",
@@ -637,8 +597,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "45min",
     barking: "moderate",
     description: "Playful, curious, and peppy companion.",
-    traits: ["Hypoallergenic", "Good with kids", "Friendly", "Cheerful"],
-    imageUrl: "https://images.unsplash.com/photo-1541876176139-5d6698f3c3e4?w=400&h=400&fit=crop"
+    traits: ["Hypoallergenic", "Good with kids", "Friendly", "Cheerful"]
   },
   {
     name: "Havanese",
@@ -651,8 +610,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "30min",
     barking: "low",
     description: "Intelligent, outgoing, and funny companion.",
-    traits: ["Hypoallergenic", "Great for apartments", "Adaptable", "Social"],
-    imageUrl: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=400&h=400&fit=crop"
+    traits: ["Hypoallergenic", "Great for apartments", "Adaptable", "Social"]
   },
   {
     name: "Miniature Schnauzer",
@@ -665,8 +623,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "45min",
     barking: "high",
     description: "Friendly, smart, and obedient terrier.",
-    traits: ["Good watchdog", "Hypoallergenic", "Trainable", "Alert"],
-    imageUrl: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=400&h=400&fit=crop"
+    traits: ["Good watchdog", "Hypoallergenic", "Trainable", "Alert"]
   },
   {
     name: "Papillon",
@@ -679,8 +636,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "45min",
     barking: "moderate",
     description: "Happy, alert, and friendly toy spaniel.",
-    traits: ["Highly trainable", "Athletic for size", "Intelligent", "Elegant"],
-    imageUrl: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=400&h=400&fit=crop"
+    traits: ["Highly trainable", "Athletic for size", "Intelligent", "Elegant"]
   },
   {
     name: "Italian Greyhound",
@@ -693,8 +649,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "45min",
     barking: "low",
     description: "Playful, sensitive miniature sighthound.",
-    traits: ["Low maintenance", "Quiet", "Elegant", "Good apartment dog"],
-    imageUrl: "https://images.unsplash.com/photo-1541876176139-5d6698f3c3e4?w=400&h=400&fit=crop"
+    traits: ["Low maintenance", "Quiet", "Elegant", "Good apartment dog"]
   },
   {
     name: "Jack Russell Terrier",
@@ -707,8 +662,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "90min",
     barking: "high",
     description: "Energetic, clever, and vocal terrier.",
-    traits: ["Very active", "Intelligent", "Bold", "Needs mental stimulation"],
-    imageUrl: "https://images.unsplash.com/photo-1583511655826-05700d7f5896?w=400&h=400&fit=crop"
+    traits: ["Very active", "Intelligent", "Bold", "Needs mental stimulation"]
   },
   {
     name: "Dalmatian",
@@ -721,8 +675,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "120min",
     barking: "moderate",
     description: "Outgoing, playful, and energetic coach dog.",
-    traits: ["High energy", "Athletic", "Unique spots", "Needs lots of exercise"],
-    imageUrl: "https://images.unsplash.com/photo-1588943211346-0908a1fb0b01?w=400&h=400&fit=crop"
+    traits: ["High energy", "Athletic", "Unique spots", "Needs lots of exercise"]
   },
   {
     name: "Shiba Inu",
@@ -735,8 +688,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "60min",
     barking: "moderate",
     description: "Alert, confident, and independent Japanese breed.",
-    traits: ["Cat-like", "Independent", "Clean", "Strong-willed"],
-    imageUrl: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=400&h=400&fit=crop"
+    traits: ["Cat-like", "Independent", "Clean", "Strong-willed"]
   },
   {
     name: "Soft Coated Wheaten Terrier",
@@ -749,8 +701,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "60min",
     barking: "moderate",
     description: "Happy, friendly, and deeply devoted terrier.",
-    traits: ["Hypoallergenic", "Great with kids", "Playful", "Soft silky coat"],
-    imageUrl: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=400&h=400&fit=crop"
+    traits: ["Hypoallergenic", "Great with kids", "Playful", "Soft silky coat"]
   },
   {
     name: "Portuguese Water Dog",
@@ -763,8 +714,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "90min",
     barking: "low",
     description: "Athletic, adventurous water dog.",
-    traits: ["Hypoallergenic", "Loves water", "Athletic", "Intelligent"],
-    imageUrl: "https://images.unsplash.com/photo-1544785349-c4a5301826fd?w=400&h=400&fit=crop"
+    traits: ["Hypoallergenic", "Loves water", "Athletic", "Intelligent"]
   },
   {
     name: "Samoyed",
@@ -777,8 +727,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "90min",
     barking: "high",
     description: "Gentle, adaptable, and friendly sled dog with permanent smile.",
-    traits: ["Friendly", "Great with kids", "Beautiful coat", "Heavy shedding"],
-    imageUrl: "https://images.unsplash.com/photo-1540943918-c7f02dca5a48?w=400&h=400&fit=crop"
+    traits: ["Friendly", "Great with kids", "Beautiful coat", "Heavy shedding"]
   },
   {
     name: "Mastiff",
@@ -791,8 +740,7 @@ const dogBreeds: DogBreed[] = [
     exercise: "45min",
     barking: "low",
     description: "Good-natured, courageous, and dignified giant.",
-    traits: ["Gentle giant", "Protective", "Calm", "Drools"],
-    imageUrl: "https://images.unsplash.com/photo-1588943211346-0908a1fb0b01?w=400&h=400&fit=crop"
+    traits: ["Gentle giant", "Protective", "Calm", "Drools"]
   }
 ];
 
@@ -1021,29 +969,16 @@ export default function DogBreedQuiz() {
             {recommendations.map((breed, index) => (
               <Card key={breed.name} className="border-l-4 border-l-primary">
                 <CardHeader>
-                  <div className="flex items-start gap-4">
-                    <div className="relative w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
-                      <Image
-                        src={breed.imageUrl}
-                        alt={breed.name}
-                        fill
-                        className="object-cover"
-                        unoptimized
-                      />
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <CardTitle className="text-lg">
+                        {index + 1}. {breed.name}
+                      </CardTitle>
+                      <p className="text-sm text-muted-foreground mt-1">{breed.description}</p>
                     </div>
-                    <div className="flex-1">
-                      <div className="flex items-start justify-between">
-                        <div>
-                          <CardTitle className="text-lg">
-                            {index + 1}. {breed.name}
-                          </CardTitle>
-                          <p className="text-sm text-muted-foreground mt-1">{breed.description}</p>
-                        </div>
-                        <div className="text-right ml-4">
-                          <div className="text-2xl font-bold text-primary">{breed.score}%</div>
-                          <div className="text-xs text-muted-foreground">Match</div>
-                        </div>
-                      </div>
+                    <div className="text-right">
+                      <div className="text-2xl font-bold text-primary">{breed.score}%</div>
+                      <div className="text-xs text-muted-foreground">Match</div>
                     </div>
                   </div>
                 </CardHeader>
