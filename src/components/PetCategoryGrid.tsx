@@ -20,9 +20,9 @@ export default function PetCategoryGrid() {
                     src={p.heroImage}
                     alt={p.label}
                     fill
-                    className="object-cover transition-transform group-hover:scale-105"
-                    unoptimized
-                  />
+                    className="object-cover transition-transform group-hover:scale-105 !w-full !h-full !max-w-full"
+                    unoptimized />
+
                 </div>
                 <CardHeader>
                   <CardTitle className="text-base">{p.label}</CardTitle>
@@ -31,10 +31,10 @@ export default function PetCategoryGrid() {
                   {p.tagline}
                 </CardContent>
               </Card>
-            </Link>
-          );
+            </Link>);
+
         })}
       </div>
-    </section>
-  );
+    </section>);
+
 }
